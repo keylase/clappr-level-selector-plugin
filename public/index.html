@@ -14,6 +14,12 @@
     plugins: {
       core: [LevelSelector],
     },
+    levelSelectorConfig:{
+      title:'Качество',
+      labelCallback: function(playbackLevel) {
+        return playbackLevel.level.height+'p'; // High 720p
+      }
+    },
 
     width: 640, height: 360,
     hideMediaControl: false,

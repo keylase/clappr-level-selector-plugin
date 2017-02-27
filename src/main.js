@@ -101,17 +101,17 @@ export default class LevelSelector extends UICorePlugin {
     {
         throw new TypeError('labelCallback must be a function')
     }
-    
+
     var hasLabels = this.core.options.levelSelectorConfig.labels
     var labels = hasLabels ? this.core.options.levelSelectorConfig.labels : {};
-    
+
     if(labelCallback || hasLabels)
     {
         var level
         var label
         for(var levelId in this.levels) {
             level = this.levels[levelId]
-            label = labels[level.id] 
+            label = labels[level.id]
             if(labelCallback)
             {
                 level.label = labelCallback(level,label)
@@ -153,19 +153,20 @@ export default class LevelSelector extends UICorePlugin {
 
   getTitle() { return (this.core.options.levelSelectorConfig || {}).title }
 
-  startLevelSwitch() { this.buttonElement().addClass('changing') }
+  startLevelSwitch() { this.buttonElement().addClass('changing');}
 
-  stopLevelSwitch() { this.buttonElement().removeClass('changing') }
+  stopLevelSwitch() { this.buttonElement().removeClass('changing'); }
 
   updateText(level) {
     if (level === AUTO) {
-      this.buttonElement().text(this.currentLevel ? 'AUTO (' + this.currentLevel.label + ')' : 'AUTO')
+      this.buttonElement().text(this.currentLevel ? 'Авто (' + this.currentLevel.label + ')' : 'Авто')
     }
     else {
       this.buttonElement().text(this.findLevelBy(level).label)
     }
   }
   updateCurrentLevel(info) {
+    console.log('LEVEL SWITCH', info) 
     var level = this.findLevelBy(info.level)
     this.currentLevel = level ? level : null
     this.highlightCurrentLevel()

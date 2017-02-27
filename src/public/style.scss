@@ -1,6 +1,6 @@
 .level_selector[data-level-selector] {
   float: right;
-  margin-top: 5px;
+  // margin-top: 5px;
   position: relative;
 
   button {
@@ -10,7 +10,8 @@
     font-family: Roboto,"Open Sans",Arial,sans-serif;
     -webkit-font-smoothing: antialiased;
     border: none;
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 32px;
 
     &:hover {
       color: #c9c9c9;
